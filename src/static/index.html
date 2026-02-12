@@ -7,9 +7,40 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Authentication Container -->
+    <div class="auth-container">
+      <button class="auth-btn" id="auth-btn">Login</button>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+      <div class="modal-content">
+        <button class="close-btn" id="close-modal">&times;</button>
+        <h2>Teacher Login</h2>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required placeholder="Enter username" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required placeholder="Enter password" />
+          </div>
+          <div id="login-message" class="hidden"></div>
+          <div class="modal-footer">
+            <button type="submit">Login</button>
+            <button type="button" id="cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <header>
       <h1>Mergington High School</h1>
       <h2>Extracurricular Activities</h2>
+      <div class="logout-info" id="logout-info" style="display: none; margin-top: 10px;">
+        👨‍🏫 Teacher Mode Active - <span id="teacher-username"></span> | <button id="logout-btn" style="background: none; border: none; color: white; cursor: pointer; text-decoration: underline; padding: 0; font-size: 14px;">Logout</button>
+      </div>
     </header>
 
     <main>
@@ -22,8 +53,9 @@
       </section>
 
       <section id="signup-container">
-        <h3>Sign Up for an Activity</h3>
-        <form id="signup-form">
+        <h3>Manage Student Registrations</h3>
+        <p id="auth-notice" style="color: #c62828; font-weight: bold;">🔒 Login as a teacher to manage student registrations.</p>
+        <form id="signup-form" style="display: none;">
           <div class="form-group">
             <label for="email">Student Email:</label>
             <input type="email" id="email" required placeholder="your-email@mergington.edu" />
@@ -35,7 +67,7 @@
               <!-- Activity options will be loaded here -->
             </select>
           </div>
-          <button type="submit">Sign Up</button>
+          <button type="submit">Register Student</button>
         </form>
         <div id="message" class="hidden"></div>
       </section>
@@ -48,3 +80,4 @@
     <script src="app.js"></script>
   </body>
 </html>
+
